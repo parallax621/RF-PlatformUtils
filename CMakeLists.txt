@@ -70,7 +70,7 @@ if (${PARENT}_CUSTOM_STRING)
     add_subdirectory(custom_string)
 endif()
 
-# custom_string
-if (${PARENT}_CUSTOM_STRING)
+# pthreads-c
+if (${PARENT}_PTHREAD_C)
     add_subdirectory(pthreads-c)
 endif()
