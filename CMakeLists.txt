@@ -41,6 +41,9 @@ SET(${PARENT}_CUSTOM_VECTOR                 ON CACHE BOOL  "" ${REWRITE_FORCE})
 # custom_string
 SET(${PARENT}_CUSTOM_STRING                 ON CACHE BOOL  "" ${REWRITE_FORCE})
 
+# pthreads-c
+SET(${PARENT}_PTHREAD_C                     ON CACHE BOOL  "" ${REWRITE_FORCE})
+
 
 
 ###############################################################################
@@ -65,4 +68,9 @@ endif()
 # custom_string
 if (${PARENT}_CUSTOM_STRING)
     add_subdirectory(custom_string)
+endif()
+
+# custom_string
+if (${PARENT}_CUSTOM_STRING)
+    add_subdirectory(pthreads-c)
 endif()
