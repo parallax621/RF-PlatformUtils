@@ -42,8 +42,10 @@ SET(${PARENT}_CUSTOM_VECTOR                 ON CACHE BOOL  "" ${REWRITE_FORCE})
 SET(${PARENT}_CUSTOM_STRING                 ON CACHE BOOL  "" ${REWRITE_FORCE})
 
 # pthreads-c
-SET(${PARENT}_PTHREAD_C                     ON CACHE BOOL  "" ${REWRITE_FORCE})
+SET(${PARENT}_PTHREADS4W                    ON CACHE BOOL  "" ${REWRITE_FORCE})
 
+# getopt
+SET(${PARENT}_GETOPT                        ON CACHE BOOL  "" ${REWRITE_FORCE})
 
 
 ###############################################################################
@@ -71,6 +73,12 @@ if (${PARENT}_CUSTOM_STRING)
 endif()
 
 # pthreads-c
-if (${PARENT}_PTHREAD_C)
-    add_subdirectory(pthreads-c)
+if (${PARENT}_PTHREADS4W)
+    SET(PTHREADS4W_BUILD_STATIC TRUE)
+    add_subdirectory(pthreads4w)
+endif()
+
+# getopt
+if (${PARENT}_GETOPT)
+    add_subdirectory(getopt)
 endif()
