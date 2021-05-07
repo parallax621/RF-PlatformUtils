@@ -47,6 +47,9 @@ SET(${PARENT}_PTHREADS4W                    ON CACHE BOOL  "" ${REWRITE_FORCE})
 # getopt
 SET(${PARENT}_GETOPT                        ON CACHE BOOL  "" ${REWRITE_FORCE})
 
+# sandbox
+SET(${PARENT}_SANDBOX                       ON CACHE BOOL  "" ${REWRITE_FORCE})
+
 
 ###############################################################################
 ## INCLUDING SUBDIRECTORIES
@@ -81,4 +84,9 @@ endif()
 # getopt
 if (${PARENT}_GETOPT)
     add_subdirectory(getopt)
+endif()
+
+# sandbox
+if (${PARENT}_SANDBOX)
+    add_subdirectory(sandbox)
 endif()
