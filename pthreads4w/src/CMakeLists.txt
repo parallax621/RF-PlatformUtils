@@ -102,16 +102,20 @@ file (GLOB_RECURSE H_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
 
 macro(shared_lib def)
     set(targ ${PROJECT_NAME})
+    if (NOT TARGET ${targ})
     add_library(${targ} SHARED pthread.c
         ${CMAKE_CURRENT_BINARY_DIR}/version.rc ${H_FILES})
+    endif()
     target_compile_definitions(${targ} PUBLIC "-D${def}")
     target_include_directories(${targ} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
 endmacro()
 
 macro(static_lib def)
     set(targ lib${PROJECT_NAME})
+    if (NOT TARGET ${targ})
     add_library(${targ} STATIC pthread.c
         ${H_FILES})
+    endif()
     target_compile_definitions(${targ} PUBLIC "-D${def}" -D__PTW32_STATIC_LIB)
     target_include_directories(${targ} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
 endmacro()
