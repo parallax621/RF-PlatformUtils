@@ -55,8 +55,16 @@ uint8_t string_to_uint32 (const char*  string_val, uint32_t* uint32_val);
  * @param ip_addr Output IP address as UINT32
  * @return TRUE on success, else FALSE
  */
-uint8_t ip_string_to_uint32 (const char*  ip_string, uint32_t* ip_addr);
+uint8_t ip_string_to_uint32 (const char* ip_string, uint32_t* ip_addr);
 
+
+/**
+ * @brief uint32_to_ip_string - Convert UINT32 IPv4 address to human readable
+ * @param ip_addr Input IP address as UINT32
+ * @param ip_string Output C string e.g. "192.168.0.1"
+ * @return TRUE on success, else FALSE
+ */
+uint8_t uint32_to_ip_string (uint32_t ip_addr, char** ip_string);
 
 
 /*==============================================================================

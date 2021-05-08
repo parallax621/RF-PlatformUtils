@@ -68,6 +68,20 @@ uint8_t ip_string_to_uint32 (const char*  ip_string, uint32_t* ip_addr)
     return FALSE;
 }
 
+uint8_t uint32_to_ip_string(uint32_t ip_addr, char **ip_string)
+{
+    *ip_string = calloc(16, sizeof (char));
+
+    unsigned char bytes[4];
+    bytes[0] = ip_addr & 0xFF;
+    bytes[1] = (ip_addr >> 8) & 0xFF;
+    bytes[2] = (ip_addr >> 16) & 0xFF;
+    bytes[3] = (ip_addr >> 24) & 0xFF;
+
+    sprintf(*ip_string, "%d.%d.%d.%d", bytes[3], bytes[2], bytes[1], bytes[0]);
+    return TRUE;
+}
+
 /*==============================================================================
  * THREAD UTILS
  *
@@ -492,3 +506,4 @@ int clock_gettime(int X, struct timespec *tv)
     return (0);
 }
 #endif
+
