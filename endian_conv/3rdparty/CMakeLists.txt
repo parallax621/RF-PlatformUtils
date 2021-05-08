@@ -14,4 +14,7 @@ project(3rdparty LANGUAGES C)
 ## INCLUDING SUBDIRECTORIES
 ## Adding subdirectories according to the 3rd-party configuration
 ###############################################################################
-add_subdirectory(../../platform_methods)
+# set platform_methods path variable
+set(PLATFORM_METHODS_DIR "../../platform_methods")
+# add subdirectory of platform_methods lib
+add_subdirectory(${PLATFORM_METHODS_DIR} platform_methods)
