@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include "utils.h"
 
 /*==============================================================================
@@ -13,26 +14,26 @@ uint8_t string_to_uint32 (const char*  string_val, uint32_t* uint32_val)
     for (int i=0; string_val[i]!= '\0'; i++)
     {
         if (isdigit(string_val[i]) == 0)
-            return FALSE;
+            return 0;
     }
 
     *uint32_val = atoi(string_val);
-    return TRUE;
+    return 1;
 }
 uint8_t string_to_uint16 (const char*  string_val, uint16_t* uint16_val)
 {
     for (int i=0; string_val[i]!= '\0'; i++)
     {
         if (isdigit(string_val[i]) == 0)
-            return FALSE;
+            return 0;
     }
 
     uint32_t val = atoi(string_val);
     if (val > 65535)
-        return FALSE;
+        return 0;
     else
         *uint16_val = (uint16_t)val;
-    return TRUE;
+    return 1;
 }
 
 
@@ -61,11 +62,11 @@ uint8_t ip_string_to_uint32 (const char*  ip_string, uint32_t* ip_addr)
         if ((byte3 < 256) && (byte2 < 256) && (byte1 < 256) && (byte0 < 256))
         {
             *ip_addr = (byte3 << 24) + (byte2 << 16) + (byte1 << 8) + byte0;
-            return TRUE;
+            return 1;
         }
     }
 
-    return FALSE;
+    return 0;
 }
 
 uint8_t uint32_to_ip_string(uint32_t ip_addr, char **ip_string)
@@ -79,7 +80,7 @@ uint8_t uint32_to_ip_string(uint32_t ip_addr, char **ip_string)
     bytes[3] = (ip_addr >> 24) & 0xFF;
 
     sprintf(*ip_string, "%d.%d.%d.%d", bytes[3], bytes[2], bytes[1], bytes[0]);
-    return TRUE;
+    return 1;
 }
 
 /*==============================================================================
