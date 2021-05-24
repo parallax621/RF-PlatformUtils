@@ -1,5 +1,6 @@
 #include <ctype.h>
 #include "utils.h"
+#include <errno.h>
 
 /*==============================================================================
  * CONVERT UTILS
