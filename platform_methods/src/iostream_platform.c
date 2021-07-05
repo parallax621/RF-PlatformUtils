@@ -8,10 +8,13 @@
 
 #endif
 
+pthread_mutex_t print_mutex;
 iostream_platform_dependent_methods_t iostream_platform;
 void init_iostream_platform(iostream_platform_dependent_methods_t* methods)
 {
+    pthread_mutex_init(&print_mutex, NULL);
     iostream_platform = *methods;
+    freopen("error.txt", "w", stderr);
 }
 
 void COLOR_PRINT(const char* s, int color)
