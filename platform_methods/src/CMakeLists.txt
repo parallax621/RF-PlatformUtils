@@ -47,3 +47,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
 ## LINK LIBRARIES
 ## linking all dependencies
 ###############################################################################
+if (MSVC)
+    add_definitions( -DPTW32_STATIC_LIB )
+    target_link_libraries(${PROJECT_NAME} libpthreads4w)
+endif(MSVC)
