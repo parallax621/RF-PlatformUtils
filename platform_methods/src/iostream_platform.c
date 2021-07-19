@@ -22,9 +22,28 @@ void COLOR_PRINT(const char* s, int color)
 #ifdef _WIN32
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color);
-    printf(s);
+    printf("%s",s);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 7);
 #else
-
+    switch (color) {
+    case 4:
+        printf("\033[;31m%s\033[0m", s);
+        break;
+    case 12:
+        printf("\033[;31m%s\033[0m", s);
+        break;
+    case 6:
+        printf("\033[;33m%s\033[0m", s);
+        break;
+    case 9:
+        printf("\033[;37m%s\033[0m", s);
+        break;
+    case 7:
+        printf("\033[;37m%s\033[0m", s);
+        break;
+    default:
+        printf("%s",s);
+        break;
+    }
 #endif
 }
