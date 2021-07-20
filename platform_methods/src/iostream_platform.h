@@ -38,7 +38,7 @@ void COLOR_PRINT(const char* s, int color);
 #endif
 
 // select trace level for debug
-#define CURRENT_TRACE_LEVEL TRACE_LEVEL_WARNING
+#define CURRENT_TRACE_LEVEL TRACE_LEVEL_SILENT
 
 extern pthread_mutex_t print_mutex;
 
