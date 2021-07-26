@@ -1,11 +1,11 @@
 ﻿#include "iostream_platform.h"
 #include "memory_platform.h"
 
+
+#include <stdio.h>
 #ifdef _WIN32
 #include <windows.h>
-#include <stdio.h>
 #else
-
 #endif
 
 pthread_mutex_t print_mutex;
