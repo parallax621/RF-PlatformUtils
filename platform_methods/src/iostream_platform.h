@@ -38,7 +38,7 @@ void COLOR_PRINT(const char* s, int color);
 #endif
 
 // select trace level for debug
-#define CURRENT_TRACE_LEVEL TRACE_LEVEL_SILENT
+#define CURRENT_TRACE_LEVEL TRACE_LEVEL_DEBUG
 
 extern pthread_mutex_t print_mutex;
 
@@ -129,21 +129,43 @@ else { TRACE_LONG(lvl, print_format, __VA_ARGS__); }
 };
 
 
-/** @brief Method for outputting debugging information
+/**
+ * @brief Method for outputting debugging information
+ *
+ * @param msg Pointer to a string containing the text to be output
+ * @param ...(additional arguments) Depending on the format string, the function
+ * may expect a sequence of additional arguments
+ *
+ * @return On success, the total number of characters written is returned.
  */
 typedef rfInt(*trace_info_t)(const rfChar* msg, ...);
 
 
-/** @brief Method for outputting alert information
+/**
+ * @brief Method for outputting alert information
+ *
+ * @param msg Pointer to a string containing the text to be output
+ * @param ...(additional arguments) Depending on the format string, the function
+ * may expect a sequence of additional arguments
+ *
+ * @return On success, the total number of characters written is returned.
  */
 typedef rfInt(*trace_warning_t)(const rfChar* msg, ...);
 
 
-/** @brief Method for outputting error information
+/**
+ * @brief Method for outputting error information
+ *
+ * @param msg Pointer to a string containing the text to be output
+ * @param ...(additional arguments) Depending on the format string, the function
+ * may expect a sequence of additional arguments
+ *
+ * @return On success, the total number of characters written is returned.
  */
 typedef rfInt(*trace_error_t)(const rfChar* msg, ...);
 
-/** @brief Structure with user-provided platform-specific methods
+/**
+ * @brief Structure with user-provided iostream platform-specific methods
  */
 typedef struct
 {
