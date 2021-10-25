@@ -91,6 +91,7 @@ void vector_delete(vector_t *vec, rfSize index)
 
 void vector_free(vector_t *vec)
 {
+    if (vec->data != NULL)
         memory_platform.rf_free(vec->data);
 }
 
