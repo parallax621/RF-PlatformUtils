@@ -82,7 +82,8 @@ void vector_delete(vector_t *vec, rfSize index)
         return;
     }
 
-    for (rfInt i = index, j = i+1; i < vec->count; i++) {
+    for (rfInt i = index; i < vec->count - 1; i++) {
+        int j = i+1;
         vec->data[i] = vec->data[j];
     }
 
